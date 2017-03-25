@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>复选框控制表格高亮</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	.even{
+		background-color: #FFF38F;
+	}
+	.odd{
+		background-color: #FFFFEE;
+	}
+	.selected{
+		 background:#FF6500;color:#fff;
+		}
+	</style>
+</head>
+<body>
+<table>
+	<thead>
+		<tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>王五</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+
+		<tr><td><input type="checkbox"></td><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox"><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox"><td>王五</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox"><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox"><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox"><td>张三</td><td>男</td><td>浙江宁波</td></tr>
+	</tbody>
+</table>
+
+<script type="text/javascript">
+$(function(){
+		$("tbody>tr:odd").addClass("odd");//给tbody中的奇数行添加样式
+		$("tbody>tr:even").addClass("even");//给tbody中的偶数行添加样式
+		$("tr:contains('王五')").addClass("selected");//高亮
+	})
+	$('tbody>tr').click(function(){
+		if ($(this).hasClass('selected')) {
+			$(this)
+			.removeClass('selected')
+			.find(':checkbox').attr('checked',false);
+		}else{
+			$(this)
+			.addClass('selected')
+			.find(':checkbox').attr('checked',true);
+		}
+	})
+	$('table :checkbox:checked').parents("tr").addClass('selected');//默认已经有的行将被高亮显示
+	// $('tbody>tr').click(function(){
+	// 	//判断当前是否选中
+	// 	var hasSelected=$(this).hasClass('selected');
+	// 	//如果选中，则移除selected类，否则就加上selected
+	// 	$(this)[hasSelected?"removeClass":"addClass"]('selected')
+	// 	//查找内部的checkbox，设置对应的属性
+	// 	.find('checkbox').attr('checked',!hasSelected);
+	// })
+</script>
+</body>
+</html>

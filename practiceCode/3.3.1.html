@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>超链接提示效果</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+
+<p><a href="#" class="tooltip" title="这是我的超链接提示1">提示1</a></p>
+<p><a href="#" class="tooltip" title="这是我的超链接提示2">提示2</a></p>
+<p><a href="#" title="这是自带提示1">自带提示1</a></p>
+
+
+<script type="text/javascript">
+$(function(){
+		var x = 10;
+		var y = 10;
+	$("a.tooltip").mouseover(function(e){
+		this.myTitle = this.title;
+		this.title = " ";
+		var tooltip="<div id='tooltip'>"+this.myTitle+"</div>";	//显示title 创建<div>元素
+
+		$("body").append(tooltip);//追加到文档中
+		$("#tooltip").css({
+			"top" : (e.pageY) + "px",
+			"left" : (e.pageX) + "px"
+		}).show("fast");//设置x,y坐标，并且显示
+
+	}).mouseout(function(){
+		//隐藏title
+		this.title = this.myTitle;
+		$("#tooltip").remove();//移除
+	}).mouseover(function(e){
+		 $("#tooltip").css({
+			"top" : (e.pageY) + "px",
+			"left" : (e.pageX) + "px"
+		});
+	});
+})
+</script>
+</body>
+</html>

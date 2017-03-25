@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+	$(function(){
+		//对地址框进行操作
+		$("#address").focus(function(){ 		
+			var txt_value = $(this).val(); 	//得到当前文本框的值
+			 if (txt_value=="请输入邮箱地址") {
+			 	$(this).val(" ");			//如果符合条件，则清空文本框内容
+			 }
+		});
+		$("#address").blur(function(){		//地址框失去鼠标焦点
+			var txt_value = $(this).val();	//得到当前文本框的值
+			if (txt_value==" ") {
+				$(this).val("请输入邮箱地址");//如果符合条件，则设置内容
+			};
+		})
+		//对密码框进行操作
+			$("#password").focus(function(){
+				var txt_value = $(this).val();
+				if (txt_value=="请输入邮箱密码") {
+					$(this).val("");
+				}
+			});
+
+			$("#password").blur(function(){
+				var txt_value = $(this).val();
+				if (txt_value=="") {
+					$(this).val("请输入邮箱密码");
+				}
+			})
+		
+
+	})
+</script>
+</head>
+<body>
+	<input type="text" id="address" value="请输入邮箱地址"/>  <br></br>
+	<input type="text" id="password" value="请输入邮箱密码"/>  <br></br>
+	<input type="button" value="登录">
+</body>
+</html>

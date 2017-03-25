@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<script type="text/javascript" src="jquery.js"> </script>
+</head>
+<body>
+	<from action="test.html">
+		用户名：<input type="text" id="username">
+		<input type="submit" value="提交" id="sub">
+	</from>
+	<div id="msg"></div>
+
+	<script type="text/javascript">
+	$(function(){
+		$("#sub").bind("click",function(event){
+			var username = $("#username").val();
+			if (username=="") {
+				$("#msg").html("<p>文本框的值不能为空。</p>");
+				event.preventDefault();
+			};
+		})
+	})
+	</script>
+</body>
+</html>

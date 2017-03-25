@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>遍历</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	
+</head>
+<body>
+	<p title="选择你最喜欢的水果">你最喜欢的水果</p>
+	<ul>
+		<li title="苹果">苹果</li>
+		<li title="橘子">橘子</li>
+		<li title="菠萝">菠萝</li>
+	</ul>
+
+	<script type="text/javascript">
+	// var $p3 = $("p");
+	// var scrollTop = $p3.scrollTop();//获取元素的滚动条顶端的距离
+	// var scrollLeft = $p3.scrollLeft();//获取元素的滚动条左侧的距离
+	// $("text").scrollTop(300);//元素的垂直滚动条到指定的位置
+
+	$(document).bind("click",function(e){
+		$(e.target).closest("li").css("color","red");//用于取得最近的匹配元素
+	})
+
+	var $p2 = $("p").siblings();//取得匹配元素前后所有的同辈元素
+	var $ul1 = $("ul").prev();//取得匹配元素前面紧邻的同辈元素
+	var $p1 = $("p").next();//取得匹配元素后面紧邻的同辈元素
+	var $body = $("body").children();//获取匹配元素的所有子元素的个数
+	var $p = $("p").children();
+	var $ul = $("ul").children();
+	alert($p2.length);
+	alert($ul1.length);
+	alert($p1.length);
+	alert($body.length);
+	alert($p.length);
+	alert($ul.length);
+	for(var i=0,len=$ul.length;i<len;i++){
+		alert($ul[i].innerHTML);
+	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>多行文本框，高度变化</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	textarea{
+		width: 100%;
+		height: 100px;
+	}
+	</style>
+</head>
+<body>
+<form>
+	<div class="msg_caption">
+		<span class="bigger">放大</span>
+		<span class="smaller">缩小</span>
+	</div>
+	<div>
+		<textarea id="comment" rows="8" cols="20">多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化</textarea>
+	</div>
+</form>
+<script type="text/javascript">
+	$(function(){
+
+			var $comment = $('#comment');  //获取评论框
+		$('.bigger').click(function(){		//“放大”放大按钮绑定单击事件
+			if($comment.height()<500){
+				//重新设置高度，在原有的基础上加50
+			$comment.animate({height:"+=50"},400);
+			}
+		});
+	
+	$('.smaller').click(function(){
+		if ($comment.height()>50) {
+			//重新设置高度，在原有的基础上减50
+			$comment.animate({height:"-=50"},400);
+				}
+		});
+	
+	});
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>移除事件</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<button id="btn">单击我</button>
+	<div id="text"></div>
+	<button id="deltwo">删除第二个事件</button>
+
+	<script type="text/javascript">
+	$(function(){
+		$('#btn').bind("click",myFun1 = function(){
+			$('#text').append("<p>我的绑定函数1</p>");
+		}).bind("click",myFun2 = function(){
+			$('#text').append("<p>我的绑定函数2</p>");
+		}).bind("click",myFun3 = function(){
+			$('#text').append("<p>我的绑定函数3</p>");
+		})
+		$("#deltwo").click(function(){
+			$('#btn').unbind("click",myFun2);
+		}) 
+	});
+	</script>
+</body>
+</html>

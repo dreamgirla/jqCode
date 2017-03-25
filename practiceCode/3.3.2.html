@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>图片提示</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+	li{
+		list-style-type:none;
+	}
+	
+	</style>
+</head>
+<body>
+	<ul>
+	<li><a href="img/1.1.jpg" class="tooltip" title="安妮"><img src="img/1.1.jpg" style="width:200px;height:200px;float:left;"></a></li>
+	<li><a href="img/2.jpg" class="tooltip" title="小鹿"><img src="img/2.jpg" style="width:200px;height:200px;float:left;"></a></li>
+	<li><a href="img/3.jpg" class="tooltip" title="璐璐"><img src="img/3.jpg" style="width:200px;height:200px;float:left;"></a></li>
+	<li><a href="img/4.jpg" class="tooltip" title="阿狸"><img src="img/4.jpg" style="width:200px;height:200px;"></a></li>
+
+	</ul>
+	<script type="text/javascript">
+	$(function(){
+		var x = 10;
+		var y = 10;
+	$("a.tooltip").mouseover(function(e){
+		this.myTitle = this.title;
+		this.title = "";
+		var imgTitle = this.myTitle? "<br/>"+this.myTitle : "";
+		var tooltip = "<div id='tooltip'><img src='"+this.href+"'alt='图片预览'/>"+imgTitle+"</div>";	//显示title 创建<div>元素
+
+		$("body").append(tooltip);//追加到文档中
+		$("#tooltip").css({
+			"top" : (e.pageY) + "px",
+			"left" : (e.pageX) + "px"
+		}).show("fast");//设置x,y坐标，并且显示
+
+	}).mouseout(function(){
+		//隐藏title
+		this.title = this.myTitle;
+		$("#tooltip").remove();//移除
+	}).mouseover(function(e){
+		 $("#tooltip").css({
+			"top" : (e.pageY) + "px",
+			"left" : (e.pageX) + "px"
+		});
+	});
+})
+	
+	</script>
+</body>
+</html>

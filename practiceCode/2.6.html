@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JQ</title>
+<script type="text/javascript" src="jquery.js"></script>
+<style>
+   .SubCategoryBox{
+	   width:650px;
+	   height:180px;
+	   border: solid #000;
+	   			}
+	.SubCategoryBox li a{
+		list-style:none;
+		text-decoration:none;
+		color:#000;
+		}
+	.SubCategoryBox li{
+		float:left;
+		display:block;
+		padding-right:100px;
+		}
+	.showmore{
+		margin-top:137px;
+		margin-left:242px;
+		border: 1px solid #999;
+		width:120px;
+		height:20px;
+		padding-left:15px;
+		}
+</style>
+
+</head>
+
+<body>
+<div class="SubCategoryBox">
+	<ul>
+		<li><a href="#">佳能</a><i>(30440) </i></li>
+		<li><a href="#">索尼</a><i>(23333) </i></li>
+    	<li><a href="#">三星</a><i>(45555) </i></li>
+    	<li><a href="#">尼康</a><i>(34444) </i></li>
+    	<li><a href="#">松下</a><i>(13333) </i></li>
+    	<li><a href="#">卡西欧</a><i>(55555) </i></li>
+    	<li><a href="#">富士</a><i>(23453) </i></li>
+    	<li><a href="#">柯达</a><i>(32344) </i></li>
+    	<li><a href="#">宾得</a><i>(33523) </i></li>
+    	<li><a href="#">理光</a><i>(31234) </i></li>
+    	<li><a href="#">奥林巴斯</a><i>(23434) </i></li>
+    	<li><a href="#">明基</a><i>(12343) </i></li>
+    	<li><a href="#">爱国者</a><i>(34223) </i></li>
+    	<li><a href="#">其他品牌相机</a><i>(33432)</i></li>
+   </ul>
+	<div class="showmore">
+		<a href="more.html" style="text-decoration:none; color:#000;"><span>显示全部品牌</span></a>
+	</div>
+</div>
+
+
+
+	<script>
+	$(function(){
+		var $category = $('ul li:gt(5):not(:last)');
+		$category.hide();
+		var $toggleBtn = $('div.showmore > a');
+		$toggleBtn.click(function(){
+			if($category.is(":visible")){
+				$category.hide();
+				$(this).find('span')
+			     .css("background","url()")
+				 .text("显示全部品牌");
+				 $('ul li').removeClass("promoted");
+			   }
+		   else{
+			     $category.show();
+				$(this).find('span')
+				  .css("background","url()")
+				  .text("精简显示品牌");
+				  $('ul li').filter(":contains('佳能'),:contains('尼康'),:contains('奥林巴斯')").addClass("promoted");
+				  
+		   }
+		   		return false;
+                    
+          	
+			})	
+			})
+	</script>
+</body>
+</html>
